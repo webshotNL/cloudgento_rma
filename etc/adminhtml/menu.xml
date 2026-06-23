@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Cloudgento_Rma::withdrawal"
+             title="Withdrawal Requests"
+             module="Cloudgento_Rma"
+             parent="Magento_Sales::sales"
+             action="withdrawal/request"
+             resource="Cloudgento_Rma::withdrawal_view"
+             sortOrder="100"/>
+    </menu>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cloudgento_rma>
+            <general>
+                <enabled>1</enabled>
+                <footer_label>Herroepen</footer_label>
+                <checkout_disclosure_text>U heeft het recht om binnen 14 dagen de overeenkomst te herroepen zonder opgave van redenen. U kunt uw herroepingsrecht uitoefenen via de link "Herroepen" in de footer van onze website.</checkout_disclosure_text>
+            </general>
+            <notifications>
+                <merchant_notify>0</merchant_notify>
+            </notifications>
+        </cloudgento_rma>
+    </default>
+</config>

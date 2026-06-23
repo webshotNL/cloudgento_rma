@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Cloudgento_Rma::config"
+                                      title="Cloudgento RMA Configuration"
+                                      sortOrder="100"/>
+                        </resource>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::sales">
+                    <resource id="Cloudgento_Rma::withdrawal"
+                              title="Withdrawal Requests"
+                              sortOrder="100">
+                        <resource id="Cloudgento_Rma::withdrawal_view"
+                                  title="View Withdrawal Requests"
+                                  sortOrder="10"/>
+                        <resource id="Cloudgento_Rma::withdrawal_manage"
+                                  title="Manage Withdrawal Requests"
+                                  sortOrder="20"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

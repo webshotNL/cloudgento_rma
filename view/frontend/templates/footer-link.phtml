@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Cloudgento\Rma\ViewModel\FooterLink $viewModel
+ */
+
+$viewModel = $block->getData('view_model');
+
+if (!$viewModel->isEnabled()) {
+    return;
+}
+?>
+<li class="nav item withdrawal-link">
+    <a href="<?= $escaper->escapeUrl($viewModel->getUrl()) ?>"
+       aria-label="<?= $escaper->escapeHtmlAttr(__('Withdraw from contract')) ?>">
+        <?= $escaper->escapeHtml($viewModel->getLabel()) ?>
+    </a>
+</li>

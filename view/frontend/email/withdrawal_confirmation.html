@@ -1,0 +1,38 @@
+<!--@subject {{trans "Withdrawal Confirmation — Order %increment_id" increment_id=$increment_id}} @-->
+<!--@vars {
+"var increment_id":"Order Increment ID",
+"var requested_at":"Withdrawal Date/Time",
+"var order.getCustomerName()":"Customer Name",
+"var store.getFrontendName()":"Store Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Dear Customer,"}}</p>
+            <p>
+                {{trans "We confirm that your withdrawal request for order <strong>%increment_id</strong> has been received on <strong>%requested_at</strong>." increment_id=$increment_id requested_at=$requested_at}}
+            </p>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <h2>{{trans "What happens next?"}}</h2>
+            <ul>
+                <li>{{trans "You have 14 days from the date of this withdrawal to return any goods you have received."}}</li>
+                <li>{{trans "We will refund all payments received from you, including delivery costs (except supplementary costs arising from your choosing a delivery method other than the least expensive standard delivery), without undue delay and no later than 14 days from the day on which we are informed of your decision to withdraw."}}</li>
+                <li>{{trans "We may withhold the refund until we have received the goods back, or you have supplied evidence of having sent back the goods, whichever is earliest."}}</li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            <p>{{trans "This email serves as your official confirmation of withdrawal on a durable medium, as required by EU Directive 2023/2673."}}</p>
+            <p>{{trans "If you have any questions, please contact us."}}</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                cloudgento_rma_request_listing.cloudgento_rma_request_listing_data_source
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>cloudgento_rma_request_columns</spinner>
+        <deps>
+            <dep>cloudgento_rma_request_listing.cloudgento_rma_request_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="cloudgento_rma_request_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Cloudgento_Rma::withdrawal_view</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="cloudgento_rma_request_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+        <massaction name="listing_massaction"
+                    component="Magento_Ui/js/grid/tree-massactions">
+            <action name="mark_processed">
+                <settings>
+                    <url path="withdrawal/request/massStatus/status/processed"/>
+                    <type>mark_processed</type>
+                    <label translate="true">Mark as Processed</label>
+                    <confirm>
+                        <message translate="true">Are you sure you want to mark selected request(s) as processed?</message>
+                        <title translate="true">Mark as Processed</title>
+                    </confirm>
+                </settings>
+            </action>
+            <action name="mark_received">
+                <settings>
+                    <url path="withdrawal/request/massStatus/status/received"/>
+                    <type>mark_received</type>
+                    <label translate="true">Mark as Received</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+    <columns name="cloudgento_rma_request_columns">
+        <selectionsColumn name="ids" sortOrder="0">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="entity_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="increment_id" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Order #</label>
+            </settings>
+        </column>
+        <column name="email" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Email</label>
+            </settings>
+        </column>
+        <column name="status" sortOrder="40" component="Magento_Ui/js/grid/columns/select">
+            <settings>
+                <filter>select</filter>
+                <label translate="true">Status</label>
+                <dataType>select</dataType>
+                <options>
+                    <option name="received" xsi:type="array">
+                        <item name="value" xsi:type="string">received</item>
+                        <item name="label" xsi:type="string" translate="true">Received</item>
+                    </option>
+                    <option name="processed" xsi:type="array">
+                        <item name="value" xsi:type="string">processed</item>
+                        <item name="label" xsi:type="string" translate="true">Processed</item>
+                    </option>
+                </options>
+            </settings>
+        </column>
+        <column name="comment" sortOrder="50">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Comment</label>
+                <visible>true</visible>
+            </settings>
+        </column>
+        <column name="requested_at" class="Magento\Ui\Component\Listing\Columns\Date"
+                component="Magento_Ui/js/grid/columns/date" sortOrder="60">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">Requested At</label>
+                <dataType>date</dataType>
+            </settings>
+        </column>
+        <column name="store_id" class="Magento\Store\Ui\Component\Listing\Column\Store" sortOrder="70">
+            <settings>
+                <filter>store</filter>
+                <label translate="true">Store</label>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
+                <visible>false</visible>
+            </settings>
+        </column>
+    </columns>
+</listing>

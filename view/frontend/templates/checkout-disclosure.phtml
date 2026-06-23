@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \Cloudgento\Rma\Block\CheckoutDisclosure $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+if (!$block->isEnabled()) {
+    return;
+}
+
+$text = $block->getDisclosureText();
+if (!$text) {
+    return;
+}
+?>
+<div class="withdrawal-checkout-disclosure" role="note" aria-label="<?= $escaper->escapeHtmlAttr(__('Withdrawal Information')) ?>">
+    <p>
+        <?= $escaper->escapeHtml($text) ?>
+        <a href="<?= $escaper->escapeUrl($block->getWithdrawalUrl()) ?>">
+            <?= $escaper->escapeHtml(__('Withdraw from contract here')) ?>
+        </a>
+    </p>
+</div>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="cloudgento" translate="label" sortOrder="500">
+            <label>Cloudgento</label>
+        </tab>
+        <section id="cloudgento_rma" translate="label" sortOrder="10"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Withdrawal (EU Directive 2023/2673)</label>
+            <tab>cloudgento</tab>
+            <resource>Cloudgento_Rma::config</resource>
+            <group id="general" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Withdrawal Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable the EU withdrawal button on the storefront.</comment>
+                </field>
+                <field id="footer_label" translate="label comment" type="text" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer Link Label</label>
+                    <comment>Label shown in the footer (default: "Herroepen").</comment>
+                </field>
+                <field id="checkout_disclosure_text" translate="label comment" type="textarea" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Checkout Disclosure Text</label>
+                    <comment>Pre-purchase disclosure shown at checkout. Leave empty to hide.</comment>
+                </field>
+            </group>
+            <group id="notifications" translate="label" sortOrder="20"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Notifications</label>
+                <field id="merchant_notify" translate="label" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notify Merchant on Withdrawal</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="merchant_email" translate="label comment" type="text" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merchant Notification Email</label>
+                    <validate>validate-email</validate>
+                    <comment>Email address that receives withdrawal notifications.</comment>
+                    <depends>
+                        <field id="merchant_notify">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

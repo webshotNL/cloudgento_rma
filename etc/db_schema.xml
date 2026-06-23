@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="cloudgento_rma_request" resource="default" engine="innodb"
+           comment="Cloudgento RMA Withdrawal Requests">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false"
+                identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="order_id" unsigned="true" nullable="true"
+                comment="Sales Order ID"/>
+        <column xsi:type="varchar" name="increment_id" length="50" nullable="false"
+                comment="Order Increment ID"/>
+        <column xsi:type="varchar" name="email" length="255" nullable="false"
+                comment="Customer Email"/>
+        <column xsi:type="text" name="comment" nullable="true"
+                comment="Optional Customer Comment"/>
+        <column xsi:type="varchar" name="status" length="32" nullable="false"
+                default="received" comment="Request Status"/>
+        <column xsi:type="timestamp" name="requested_at" nullable="false"
+                default="CURRENT_TIMESTAMP" comment="Date/Time of Withdrawal Request"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false"
+                default="0" comment="Store ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="CLOUDGENTO_RMA_REQUEST_INCREMENT_ID" indexType="btree">
+            <column name="increment_id"/>
+        </index>
+        <index referenceId="CLOUDGENTO_RMA_REQUEST_EMAIL" indexType="btree">
+            <column name="email"/>
+        </index>
+        <index referenceId="CLOUDGENTO_RMA_REQUEST_STATUS" indexType="btree">
+            <column name="status"/>
+        </index>
+    </table>
+</schema>

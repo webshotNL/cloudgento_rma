@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="cloudgento_rma_withdrawal_confirmation"
+              label="Withdrawal Confirmation"
+              file="withdrawal_confirmation.html"
+              type="html"
+              module="Cloudgento_Rma"
+              area="frontend"/>
+    <template id="cloudgento_rma_merchant_notification"
+              label="Withdrawal Merchant Notification"
+              file="withdrawal_merchant_notification.html"
+              type="html"
+              module="Cloudgento_Rma"
+              area="frontend"/>
+</config>

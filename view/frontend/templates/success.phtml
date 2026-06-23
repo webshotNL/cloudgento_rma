@@ -1,0 +1,48 @@
+<?php
+/**
+ * @var \Cloudgento\Rma\Block\Success $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+
+$order = $block->getData('order');
+$requestedAt = $block->getData('requested_at');
+?>
+<div class="withdrawal-success-container">
+    <div class="message success">
+        <span><?= $escaper->escapeHtml(
+            __('Your withdrawal request has been received and confirmed.')
+        ) ?></span>
+    </div>
+
+    <?php if ($order): ?>
+        <div class="withdrawal-details">
+            <table class="data table">
+                <caption class="table-caption"><?= $escaper->escapeHtml(__('Withdrawal Details')) ?></caption>
+                <tbody>
+                    <tr>
+                        <th scope="row"><?= $escaper->escapeHtml(__('Order Number')) ?></th>
+                        <td><?= $escaper->escapeHtml($order->getIncrementId()) ?></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><?= $escaper->escapeHtml(__('Withdrawal Date/Time')) ?></th>
+                        <td><?= $escaper->escapeHtml($requestedAt) ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <?php endif; ?>
+
+    <div class="withdrawal-next-steps">
+        <p><?= $escaper->escapeHtml(
+            __('A confirmation email has been sent to you. This serves as your official acknowledgement of withdrawal. You have 14 days to return any goods received. You will be refunded in accordance with the law.')
+        ) ?></p>
+    </div>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary" href="<?= $escaper->escapeUrl($block->getBaseUrl()) ?>">
+                <span><?= $escaper->escapeHtml(__('Continue Shopping')) ?></span>
+            </a>
+        </div>
+    </div>
+</div>

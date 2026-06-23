@@ -1,0 +1,98 @@
+<?php
+/**
+ * @var \Cloudgento\Rma\Block\Form $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<div class="withdrawal-form-container">
+    <div class="withdrawal-intro">
+        <p><?= $escaper->escapeHtml(
+            __('You have the right to withdraw from your contract within 14 days without giving any reason. Please enter your order details below to start the withdrawal process.')
+        ) ?></p>
+    </div>
+
+    <form class="form withdrawal-form"
+          action="<?= $escaper->escapeUrl($block->getFormAction()) ?>"
+          method="post"
+          id="withdrawal-form"
+          data-mage-init='{"validation":{}}'>
+        <?= $block->getBlockHtml('formkey') ?>
+
+        <fieldset class="fieldset">
+            <legend class="legend">
+                <span><?= $escaper->escapeHtml(__('Order Details')) ?></span>
+            </legend>
+
+            <div class="field required">
+                <label for="increment_id" class="label">
+                    <span><?= $escaper->escapeHtml(__('Order Number')) ?></span>
+                </label>
+                <div class="control">
+                    <input type="text"
+                           name="increment_id"
+                           id="increment_id"
+                           class="input-text"
+                           required
+                           aria-required="true"
+                           autocomplete="off"
+                           placeholder="<?= $escaper->escapeHtmlAttr(__('e.g. 100000001')) ?>"/>
+                </div>
+            </div>
+
+            <div class="field required">
+                <label for="email" class="label">
+                    <span><?= $escaper->escapeHtml(__('Email Address')) ?></span>
+                </label>
+                <div class="control">
+                    <input type="email"
+                           name="email"
+                           id="email"
+                           class="input-text"
+                           required
+                           aria-required="true"
+                           autocomplete="email"
+                           data-validate='{"required-entry":true, "validate-email":true}'
+                           placeholder="<?= $escaper->escapeHtmlAttr(__('Email used for the order')) ?>"/>
+                </div>
+            </div>
+
+            <div class="field required">
+                <label for="postcode" class="label">
+                    <span><?= $escaper->escapeHtml(__('Postcode')) ?></span>
+                </label>
+                <div class="control">
+                    <input type="text"
+                           name="postcode"
+                           id="postcode"
+                           class="input-text"
+                           required
+                           aria-required="true"
+                           autocomplete="postal-code"
+                           placeholder="<?= $escaper->escapeHtmlAttr(__('Billing or shipping postcode')) ?>"/>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="comment" class="label">
+                    <span><?= $escaper->escapeHtml(__('Comment (optional)')) ?></span>
+                </label>
+                <div class="control">
+                    <textarea name="comment"
+                              id="comment"
+                              class="input-text"
+                              rows="3"
+                              aria-required="false"
+                              placeholder="<?= $escaper->escapeHtmlAttr(__('Optional — you do not need to give a reason')) ?>"></textarea>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action primary" title="<?= $escaper->escapeHtmlAttr(__('Continue')) ?>">
+                    <span><?= $escaper->escapeHtml(__('Continue')) ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
