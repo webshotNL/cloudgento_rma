@@ -37,6 +37,6 @@ class FooterLink implements ArgumentInterface
 
     public function getUrl(): string
     {
-        return $this->urlBuilder->getUrl('withdrawal');
+        return $this->urlBuilder->getUrl('returns');
     }
 }

@@ -34,7 +34,7 @@ class Confirm implements HttpPostActionInterface
                 __('Please fill in all required fields.')
             );
             $redirect = $this->redirectFactory->create();
-            $redirect->setPath('withdrawal');
+            $redirect->setPath('returns');
             return $redirect;
         }
 
@@ -45,7 +45,7 @@ class Confirm implements HttpPostActionInterface
                 __('We could not find an order matching the details you entered. Please check and try again.')
             );
             $redirect = $this->redirectFactory->create();
-            $redirect->setPath('withdrawal');
+            $redirect->setPath('returns');
             return $redirect;
         }
 

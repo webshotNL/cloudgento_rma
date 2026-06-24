@@ -40,7 +40,7 @@
                     component="Magento_Ui/js/grid/tree-massactions">
             <action name="mark_processed">
                 <settings>
-                    <url path="withdrawal/request/massStatus/status/processed"/>
+                    <url path="returns/request/massStatus/status/processed"/>
                     <type>mark_processed</type>
                     <label translate="true">Mark as Processed</label>
                     <confirm>
@@ -51,7 +51,7 @@
             </action>
             <action name="mark_received">
                 <settings>
-                    <url path="withdrawal/request/massStatus/status/received"/>
+                    <url path="returns/request/massStatus/status/received"/>
                     <type>mark_received</type>
                     <label translate="true">Mark as Received</label>
                 </settings>

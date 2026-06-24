@@ -6,7 +6,7 @@
              title="Withdrawal Requests"
              module="Cloudgento_Rma"
              parent="Magento_Sales::sales"
-             action="withdrawal/request"
+             action="returns/request"
              resource="Cloudgento_Rma::withdrawal_view"
              sortOrder="100"/>
     </menu>

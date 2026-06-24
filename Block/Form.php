@@ -10,6 +10,6 @@ class Form extends Template
 {
     public function getFormAction(): string
     {
-        return $this->getUrl('withdrawal/index/confirm');
+        return $this->getUrl('returns/index/confirm');
     }
 }

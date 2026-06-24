@@ -10,6 +10,6 @@ class Confirm extends Template
 {
     public function getSubmitAction(): string
     {
-        return $this->getUrl('withdrawal/index/submit');
+        return $this->getUrl('returns/index/submit');
     }
 }

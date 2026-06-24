@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(mv withdrawal_index_index.xml returns_index_index.xml)",
+      "Bash(mv withdrawal_index_confirm.xml returns_index_confirm.xml)",
+      "Bash(mv withdrawal_index_submit.xml returns_index_submit.xml)"
+    ]
+  }
+}

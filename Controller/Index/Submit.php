@@ -45,7 +45,7 @@ class Submit implements HttpPostActionInterface
         if ($incrementId === '' || $email === '' || $postcode === '') {
             $this->messageManager->addErrorMessage(__('Please fill in all required fields.'));
             $redirect = $this->redirectFactory->create();
-            $redirect->setPath('withdrawal');
+            $redirect->setPath('returns');
             return $redirect;
         }
 
@@ -56,7 +56,7 @@ class Submit implements HttpPostActionInterface
                 __('We could not find an order matching the details you entered. Please check and try again.')
             );
             $redirect = $this->redirectFactory->create();
-            $redirect->setPath('withdrawal');
+            $redirect->setPath('returns');
             return $redirect;
         }
 

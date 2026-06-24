@@ -29,7 +29,7 @@ class CheckoutDisclosure extends Template
 
     public function getWithdrawalUrl(): string
     {
-        return $this->getUrl('withdrawal');
+        return $this->getUrl('returns');
     }
 
     public function isEnabled(): bool

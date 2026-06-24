@@ -41,7 +41,7 @@ class MassStatus extends Action
         );
 
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        $resultRedirect->setPath('withdrawal/request/index');
+        $resultRedirect->setPath('returns/request/index');
         return $resultRedirect;
     }
 }
