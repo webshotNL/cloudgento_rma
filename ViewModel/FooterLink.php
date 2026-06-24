@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Cloudgento\Rma\ViewModel;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Store\Model\ScopeInterface;
+use Cloudgento\Rma\Model\UrlResolver;
 
 class FooterLink implements ArgumentInterface
 {
     public function __construct(
         private readonly ScopeConfigInterface $scopeConfig,
-        private readonly UrlInterface $urlBuilder
+        private readonly UrlResolver $urlResolver
     ) {
     }
 
@@ -37,6 +37,6 @@ class FooterLink implements ArgumentInterface
 
     public function getUrl(): string
     {
-        return $this->urlBuilder->getUrl('returns');
+        return $this->urlResolver->getBaseUrl();
     }
 }

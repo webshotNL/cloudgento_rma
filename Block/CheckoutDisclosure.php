@@ -8,12 +8,14 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\ScopeInterface;
+use Cloudgento\Rma\Model\UrlResolver;
 
 class CheckoutDisclosure extends Template
 {
     public function __construct(
         Context $context,
         private readonly ScopeConfigInterface $scopeConfig,
+        private readonly UrlResolver $urlResolver,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -29,7 +31,7 @@ class CheckoutDisclosure extends Template
 
     public function getWithdrawalUrl(): string
     {
-        return $this->getUrl('returns');
+        return $this->urlResolver->getBaseUrl();
     }
 
     public function isEnabled(): bool

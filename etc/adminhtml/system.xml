@@ -20,6 +20,12 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>Enable the EU withdrawal button on the storefront.</comment>
                 </field>
+                <field id="custom_url" translate="label comment" type="text" sortOrder="15"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom URL Path</label>
+                    <comment>Custom front-end URL path (e.g. "herroepen" or "retourneren"). Leave empty to use the default "/returns". Do not include leading slash.</comment>
+                    <validate>validate-identifier</validate>
+                </field>
                 <field id="footer_label" translate="label comment" type="text" sortOrder="20"
                        showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Footer Link Label</label>

@@ -86,7 +86,7 @@ if (!$order) {
                 </button>
             </div>
             <div class="secondary">
-                <a class="action back" href="<?= $escaper->escapeUrl($block->getUrl('returns')) ?>">
+                <a class="action back" href="<?= $escaper->escapeUrl($block->getCancelUrl()) ?>">
                     <span><?= $escaper->escapeHtml(__('Cancel')) ?></span>
                 </a>
             </div>
