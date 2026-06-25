@@ -15,7 +15,8 @@
       "Bash(grep *)",
       "Bash(git commit -m 'Fix admin menu: nest under Cloudgento_Dashboard::root instead of own top-level *)",
       "Bash(git commit -m 'Fix order history: append return link to actions cell, not inside View Order span *)",
-      "Bash(git commit -m 'Add Retourneren link to Recent Orders on My Account dashboard *)"
+      "Bash(git commit -m 'Add Retourneren link to Recent Orders on My Account dashboard *)",
+      "Bash(git commit -m 'Fix return link placement: append to td via DOM, display block with margin *)"
     ]
   }
 }
