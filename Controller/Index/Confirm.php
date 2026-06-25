@@ -51,6 +51,7 @@ class Confirm implements HttpPostActionInterface
 
         $page = $this->pageFactory->create();
         $page->getConfig()->getTitle()->set(__('Confirm Withdrawal'));
+        $page->getConfig()->setRobots('noindex,nofollow');
 
         $block = $page->getLayout()->getBlock('withdrawal.confirm');
         if ($block) {

@@ -86,6 +86,7 @@ class Submit implements HttpPostActionInterface
 
         $page = $this->pageFactory->create();
         $page->getConfig()->getTitle()->set(__('Withdrawal Confirmed'));
+        $page->getConfig()->setRobots('noindex,nofollow');
 
         $block = $page->getLayout()->getBlock('withdrawal.success');
         if ($block) {
