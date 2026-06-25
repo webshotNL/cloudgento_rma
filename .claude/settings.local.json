@@ -13,7 +13,8 @@
       "Bash(git commit -m 'Add Retourneren button to order history and order detail pages *)",
       "Bash(git commit -m 'Fix ACL: add required title attribute to parent resource elements *)",
       "Bash(grep *)",
-      "Bash(git commit -m 'Fix admin menu: nest under Cloudgento_Dashboard::root instead of own top-level *)"
+      "Bash(git commit -m 'Fix admin menu: nest under Cloudgento_Dashboard::root instead of own top-level *)",
+      "Bash(git commit -m 'Fix order history: append return link to actions cell, not inside View Order span *)"
     ]
   }
 }
