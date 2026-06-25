@@ -10,6 +10,13 @@ use Magento\Sales\Api\OrderRepositoryInterface;
 
 class OrderLocator
 {
+    public const RESULT_OK = 'ok';
+    public const RESULT_NOT_FOUND = 'not_found';
+    public const RESULT_EMAIL_MISMATCH = 'email_mismatch';
+    public const RESULT_POSTCODE_MISMATCH = 'postcode_mismatch';
+
+    private string $lastResult = self::RESULT_NOT_FOUND;
+
     public function __construct(
         private readonly OrderRepositoryInterface $orderRepository,
         private readonly SearchCriteriaBuilder $searchCriteriaBuilder
@@ -18,6 +25,8 @@ class OrderLocator
 
     public function locate(string $incrementId, string $email, string $postcode): ?OrderInterface
     {
+        $this->lastResult = self::RESULT_NOT_FOUND;
+
         $this->searchCriteriaBuilder->addFilter('increment_id', $incrementId);
         $searchCriteria = $this->searchCriteriaBuilder->create();
 
@@ -29,6 +38,7 @@ class OrderLocator
 
         foreach ($orders->getItems() as $order) {
             if (mb_strtolower($order->getCustomerEmail()) !== mb_strtolower($email)) {
+                $this->lastResult = self::RESULT_EMAIL_MISMATCH;
                 continue;
             }
 
@@ -41,11 +51,19 @@ class OrderLocator
             $inputPostcode = $this->normalizePostcode($postcode);
 
             if ($inputPostcode === $billingPostcode || $inputPostcode === $shippingPostcode) {
+                $this->lastResult = self::RESULT_OK;
                 return $order;
             }
+
+            $this->lastResult = self::RESULT_POSTCODE_MISMATCH;
         }
 
         return null;
+    }
+
+    public function getLastResult(): string
+    {
+        return $this->lastResult;
     }
 
     private function normalizePostcode(string $postcode): string
