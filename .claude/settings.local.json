@@ -21,7 +21,15 @@
       "Bash(git commit -m 'Add vertical bar separator with margin between action links and return link *)",
       "Bash(git commit -m 'Fix action separators and add return link on order detail page *)",
       "Bash(git commit -m 'Fix printer icon, use translatable label, remove double separator *)",
-      "Bash(git commit -m 'Use translatable English default for all labels instead of hardcoded Dutch *)"
+      "Bash(git commit -m 'Use translatable English default for all labels instead of hardcoded Dutch *)",
+      "Bash(git -C /Users/a.i.banut/cloudgento_dashboard tag -l)",
+      "Bash(mkdir -p /Users/a.i.banut/cloudgento_dashboard/view/adminhtml/web/js)",
+      "Bash(curl -s -o /Users/a.i.banut/cloudgento_dashboard/view/adminhtml/web/js/chart.umd.min.js \"https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js\")",
+      "Bash(git -C /Users/a.i.banut/cloudgento_dashboard add -A)",
+      "Bash(git -C /Users/a.i.banut/cloudgento_dashboard commit -m 'Bundle Chart.js locally to avoid all CSP issues *)",
+      "Bash(git -C /Users/a.i.banut/cloudgento_dashboard push)",
+      "Bash(git -C /Users/a.i.banut/cloudgento_dashboard commit -m 'Fix Chart.js RequireJS conflict: load via require\\(\\) instead of script tag *)",
+      "Bash(git commit -m 'Add WYSIWYG intro content field for the return form page *)"
     ]
   }
 }

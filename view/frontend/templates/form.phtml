@@ -5,11 +5,18 @@
  */
 ?>
 <div class="withdrawal-form-container">
-    <div class="withdrawal-intro">
-        <p><?= $escaper->escapeHtml(
-            __('You have the right to withdraw from your contract within 14 days without giving any reason. Please enter your order details below to start the withdrawal process.')
-        ) ?></p>
-    </div>
+    <?php $introContent = $block->getIntroContent(); ?>
+    <?php if ($introContent): ?>
+        <div class="withdrawal-intro-content">
+            <?= /* @noEscape */ $introContent ?>
+        </div>
+    <?php else: ?>
+        <div class="withdrawal-intro">
+            <p><?= $escaper->escapeHtml(
+                __('You have the right to withdraw from your contract within 14 days without giving any reason. Please enter your order details below to start the withdrawal process.')
+            ) ?></p>
+        </div>
+    <?php endif; ?>
 
     <form class="form withdrawal-form"
           action="<?= $escaper->escapeUrl($block->getFormAction()) ?>"

@@ -37,6 +37,16 @@
                     <comment>Pre-purchase disclosure shown at checkout. Leave empty to hide.</comment>
                 </field>
             </group>
+            <group id="form_content" translate="label" sortOrder="15"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Return Page Content</label>
+                <field id="intro_content" translate="label comment" type="editor" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Introduction Content</label>
+                    <comment>HTML content displayed above the return form. Use the editor to add text, images, and formatting.</comment>
+                    <frontend_model>Cloudgento\Rma\Block\Adminhtml\System\Config\Editor</frontend_model>
+                </field>
+            </group>
             <group id="notifications" translate="label" sortOrder="20"
                    showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Notifications</label>
