@@ -32,7 +32,7 @@ class FooterLink implements ArgumentInterface
             ScopeInterface::SCOPE_STORE
         );
 
-        return $label ?: (string) __('Herroepen');
+        return $label ?: (string) __('Return');
     }
 
     public function getUrl(): string
