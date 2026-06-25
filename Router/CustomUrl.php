@@ -44,17 +44,13 @@ class CustomUrl implements RouterInterface
             return null;
         }
 
-        // Map: /custom-slug → returns/index/index
-        //      /custom-slug/confirm → returns/index/confirm  (not used directly but kept for consistency)
         $action = $parts[1] ?? 'index';
 
-        $request->setModuleName('returns');
-        $request->setControllerName('index');
-        $request->setActionName($action);
         $request->setAlias(
             \Magento\Framework\Url::REWRITE_REQUEST_PATH_ALIAS,
             $identifier
         );
+        $request->setPathInfo('/returns/index/' . $action);
 
         return $this->actionFactory->create(\Magento\Framework\App\Action\Forward::class);
     }
