@@ -7,7 +7,7 @@ define([
         var baseUrl = config.baseUrl,
             label = config.label || 'Retourneren';
 
-        $('#my-orders-table tbody tr').each(function () {
+        $('#my-orders-table tbody tr, .table-order-items tbody tr, .orders-recent .table-wrapper table tbody tr').each(function () {
             var $row = $(this),
                 $orderLink = $row.find('td.col.id'),
                 orderId = $.trim($orderLink.text()),
