@@ -1,0 +1,25 @@
+<?php
+/**
+ * Initializes the JS that adds "Retourneren" buttons to the order history table.
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Cloudgento\Rma\ViewModel\OrderReturnButton $viewModel
+ */
+
+$viewModel = $block->getData('view_model');
+
+if (!$viewModel->isEnabled()) {
+    return;
+}
+?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Cloudgento_Rma/js/order-return-button": {
+                "baseUrl": "<?= $escaper->escapeJs($viewModel->getBaseReturnUrl()) ?>",
+                "label": "<?= $escaper->escapeJs($viewModel->getButtonLabel()) ?>"
+            }
+        }
+    }
+</script>

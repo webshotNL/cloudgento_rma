@@ -27,6 +27,17 @@ class UrlResolver
         return $this->urlBuilder->getUrl('returns');
     }
 
+    public function getPrefilledUrl(string $incrementId): string
+    {
+        $customSlug = $this->getCustomSlug();
+
+        if ($customSlug !== '') {
+            return $this->urlBuilder->getDirectUrl($customSlug, ['_query' => ['order' => $incrementId]]);
+        }
+
+        return $this->urlBuilder->getUrl('returns', ['_query' => ['order' => $incrementId]]);
+    }
+
     public function getActionUrl(string $action): string
     {
         $customSlug = $this->getCustomSlug();

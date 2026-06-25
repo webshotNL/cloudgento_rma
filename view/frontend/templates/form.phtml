@@ -35,6 +35,7 @@
                            required
                            aria-required="true"
                            autocomplete="off"
+                           value="<?= $escaper->escapeHtmlAttr($block->getPrefilledOrderNumber()) ?>"
                            placeholder="<?= $escaper->escapeHtmlAttr(__('e.g. 100000001')) ?>"/>
                 </div>
             </div>

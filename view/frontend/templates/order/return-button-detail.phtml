@@ -1,0 +1,32 @@
+<?php
+/**
+ * Renders a "Retourneren" button on the order detail page.
+ * Gets the current order from the core registry (Magento\Sales\Helper\Reorder uses the same approach).
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Cloudgento\Rma\ViewModel\OrderReturnButton $viewModel
+ */
+
+$viewModel = $block->getData('view_model');
+
+if (!$viewModel->isEnabled()) {
+    return;
+}
+
+/** @var \Magento\Sales\Block\Order\Info $orderInfoBlock */
+$orderInfoBlock = $block->getLayout()->getBlock('sales.order.info');
+if (!$orderInfoBlock) {
+    return;
+}
+
+$order = $orderInfoBlock->getOrder();
+if (!$order) {
+    return;
+}
+?>
+<a href="<?= $escaper->escapeUrl($viewModel->getReturnUrl($order->getIncrementId())) ?>"
+   class="action return"
+   title="<?= $escaper->escapeHtmlAttr($viewModel->getButtonLabel()) ?>">
+    <span><?= $escaper->escapeHtml($viewModel->getButtonLabel()) ?></span>
+</a>

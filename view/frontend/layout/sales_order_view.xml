@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="order.actions">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="cloudgento.rma.order.return.button"
+                   template="Cloudgento_Rma::order/return-button-detail.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Cloudgento\Rma\ViewModel\OrderReturnButton</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
