@@ -90,6 +90,22 @@ class Submit implements HttpPostActionInterface
             return $redirect;
         }
 
+        // Check if the 14-day withdrawal period has expired
+        $orderDate = $order->getCreatedAt();
+        if ($orderDate) {
+            $orderTime = strtotime($orderDate);
+            $deadline = $orderTime + (14 * 86400);
+            if (time() > $deadline) {
+                $this->messageManager->addErrorMessage(
+                    __('The 14-day withdrawal period for this order has expired. You can only withdraw from a contract within 14 days of receiving your order. If you believe this is incorrect, please contact our customer service.')
+                );
+                $this->customerSession->setData('rma_form_data', $formData);
+                $redirect = $this->redirectFactory->create();
+                $redirect->setPath('returns');
+                return $redirect;
+            }
+        }
+
         $storeId = (int) $this->storeManager->getStore()->getId();
         $requestedAt = $this->dateTime->gmtDate();
 
