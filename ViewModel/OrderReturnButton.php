@@ -42,6 +42,6 @@ class OrderReturnButton implements ArgumentInterface
             ScopeInterface::SCOPE_STORE
         );
 
-        return $label ?: (string) __('Retourneren');
+        return $label ?: (string) __('Return');
     }
 }

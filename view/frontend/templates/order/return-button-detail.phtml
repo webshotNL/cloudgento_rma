@@ -23,7 +23,7 @@ if (!$order) {
 }
 ?>
 <a href="<?= $escaper->escapeUrl($viewModel->getReturnUrl($order->getIncrementId())) ?>"
-   class="action print"
+   class="action return"
    title="<?= $escaper->escapeHtmlAttr($viewModel->getButtonLabel()) ?>">
     <span><?= $escaper->escapeHtml($viewModel->getButtonLabel()) ?></span>
 </a>

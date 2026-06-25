@@ -38,8 +38,7 @@ define([
 
                 $actionsCell.append(
                     '<a href="' + returnUrl + '" class="action return" ' +
-                    'title="' + label + '" ' +
-                    'style="margin-left:10px;padding-left:10px;border-left:1px solid #ccc;">' +
+                    'title="' + label + '">' +
                     label + '</a>'
                 );
             });
