@@ -11,7 +11,9 @@
       "Bash(mv withdrawal_index_submit.xml returns_index_submit.xml)",
       "Bash(git commit -m 'Move robots meta from layout XML to controllers *)",
       "Bash(git commit -m 'Add Retourneren button to order history and order detail pages *)",
-      "Bash(git commit -m 'Fix ACL: add required title attribute to parent resource elements *)"
+      "Bash(git commit -m 'Fix ACL: add required title attribute to parent resource elements *)",
+      "Bash(grep *)",
+      "Bash(git commit -m 'Fix admin menu: nest under Cloudgento_Dashboard::root instead of own top-level *)"
     ]
   }
 }
