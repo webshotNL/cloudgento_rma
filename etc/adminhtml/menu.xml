@@ -3,13 +3,13 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Cloudgento_Rma::rma"
-             title="Returns / Withdrawal"
+             title="Returns"
              module="Cloudgento_Rma"
              parent="Cloudgento_Dashboard::root"
              resource="Cloudgento_Rma::withdrawal_view"
              sortOrder="45"/>
         <add id="Cloudgento_Rma::withdrawal"
-             title="Withdrawal Requests"
+             title="Return Requests"
              module="Cloudgento_Rma"
              parent="Cloudgento_Rma::rma"
              action="returns/request"

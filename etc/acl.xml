@@ -15,13 +15,13 @@
                 </resource>
                 <resource id="Magento_Backend::sales" title="Sales" sortOrder="20">
                     <resource id="Cloudgento_Rma::withdrawal"
-                              title="Withdrawal Requests"
+                              title="Return Requests"
                               sortOrder="100">
                         <resource id="Cloudgento_Rma::withdrawal_view"
-                                  title="View Withdrawal Requests"
+                                  title="View Return Requests"
                                   sortOrder="10"/>
                         <resource id="Cloudgento_Rma::withdrawal_manage"
-                                  title="Manage Withdrawal Requests"
+                                  title="Manage Return Requests"
                                   sortOrder="20"/>
                     </resource>
                 </resource>

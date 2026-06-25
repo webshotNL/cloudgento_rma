@@ -23,7 +23,7 @@ class Index extends Action
     {
         $page = $this->pageFactory->create();
         $page->setActiveMenu('Cloudgento_Rma::withdrawal');
-        $page->getConfig()->getTitle()->prepend(__('Withdrawal Requests'));
+        $page->getConfig()->getTitle()->prepend(__('Return Requests'));
         return $page;
     }
 }
