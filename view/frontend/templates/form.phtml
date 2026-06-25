@@ -3,6 +3,7 @@
  * @var \Cloudgento\Rma\Block\Form $block
  * @var \Magento\Framework\Escaper $escaper
  */
+$formData = $block->getFormData();
 ?>
 <div class="withdrawal-form-container">
     <?php $introContent = $block->getIntroContent(); ?>
@@ -45,7 +46,7 @@
                            required
                            aria-required="true"
                            autocomplete="off"
-                           value="<?= $escaper->escapeHtmlAttr($block->getPrefilledOrderNumber()) ?>"
+                           value="<?= $escaper->escapeHtmlAttr($formData['increment_id']) ?>"
                            placeholder="<?= $escaper->escapeHtmlAttr(__('e.g. 100000001')) ?>"/>
                 </div>
             </div>
@@ -62,6 +63,7 @@
                            required
                            aria-required="true"
                            autocomplete="email"
+                           value="<?= $escaper->escapeHtmlAttr($formData['email']) ?>"
                            data-validate='{"required-entry":true, "validate-email":true}'
                            placeholder="<?= $escaper->escapeHtmlAttr(__('Email used for the order')) ?>"/>
                 </div>
@@ -79,6 +81,7 @@
                            required
                            aria-required="true"
                            autocomplete="postal-code"
+                           value="<?= $escaper->escapeHtmlAttr($formData['postcode']) ?>"
                            placeholder="<?= $escaper->escapeHtmlAttr(__('Billing or shipping postcode')) ?>"/>
                 </div>
             </div>
@@ -93,7 +96,7 @@
                               class="input-text"
                               rows="3"
                               aria-required="false"
-                              placeholder="<?= $escaper->escapeHtmlAttr(__('Optional — you do not need to give a reason')) ?>"></textarea>
+                              placeholder="<?= $escaper->escapeHtmlAttr(__('Optional — you do not need to give a reason')) ?>"><?= $escaper->escapeHtml($formData['comment']) ?></textarea>
                 </div>
             </div>
         </fieldset>

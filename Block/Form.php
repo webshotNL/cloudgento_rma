@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Cloudgento\Rma\Block;
 
 use Magento\Cms\Model\Template\FilterProvider;
+use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Element\Template;
@@ -20,6 +21,7 @@ class Form extends Template
         private readonly RequestInterface $request,
         private readonly ScopeConfigInterface $scopeConfig,
         private readonly FilterProvider $filterProvider,
+        private readonly CustomerSession $customerSession,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -30,9 +32,16 @@ class Form extends Template
         return $this->urlResolver->getActionUrl('submit');
     }
 
-    public function getPrefilledOrderNumber(): string
+    public function getFormData(): array
     {
-        return trim((string) $this->request->getParam('order'));
+        $saved = $this->customerSession->getData('rma_form_data', true) ?? [];
+
+        return [
+            'increment_id' => $saved['increment_id'] ?? trim((string) $this->request->getParam('order')),
+            'email' => $saved['email'] ?? '',
+            'postcode' => $saved['postcode'] ?? '',
+            'comment' => $saved['comment'] ?? '',
+        ];
     }
 
     public function getIntroContent(): string

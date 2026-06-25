@@ -13,6 +13,7 @@ use Magento\Framework\Message\ManagerInterface as MessageManager;
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Store\Model\StoreManagerInterface;
 use Cloudgento\Rma\Model\OrderLocator;
 use Cloudgento\Rma\Model\WithdrawalRequestFactory;
@@ -31,7 +32,8 @@ class Submit implements HttpPostActionInterface
         private readonly TransportBuilder $transportBuilder,
         private readonly StoreManagerInterface $storeManager,
         private readonly ScopeConfigInterface $scopeConfig,
-        private readonly DateTime $dateTime
+        private readonly DateTime $dateTime,
+        private readonly CustomerSession $customerSession
     ) {
     }
 
@@ -42,8 +44,16 @@ class Submit implements HttpPostActionInterface
         $postcode = trim((string) $this->request->getParam('postcode'));
         $comment = trim((string) $this->request->getParam('comment'));
 
+        $formData = [
+            'increment_id' => $incrementId,
+            'email' => $email,
+            'postcode' => $postcode,
+            'comment' => $comment,
+        ];
+
         if ($incrementId === '' || $email === '' || $postcode === '') {
             $this->messageManager->addErrorMessage(__('Please fill in all required fields.'));
+            $this->customerSession->setData('rma_form_data', $formData);
             $redirect = $this->redirectFactory->create();
             $redirect->setPath('returns');
             return $redirect;
@@ -68,6 +78,7 @@ class Submit implements HttpPostActionInterface
                 );
             }
 
+            $this->customerSession->setData('rma_form_data', $formData);
             $redirect = $this->redirectFactory->create();
             $redirect->setPath('returns');
             return $redirect;
