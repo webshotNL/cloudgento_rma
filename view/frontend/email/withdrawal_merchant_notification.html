@@ -1,8 +1,8 @@
-<!--@subject {{trans "New Withdrawal Request — Order %increment_id" increment_id=$increment_id}} @-->
+<!--@subject {{trans "New return request — Order %increment_id" increment_id=$increment_id}} @-->
 <!--@vars {
 "var increment_id":"Order Increment ID",
 "var customer_email":"Customer Email",
-"var requested_at":"Withdrawal Date/Time",
+"var requested_at":"Return Request Date/Time",
 "var comment":"Customer Comment"
 } @-->
 
@@ -11,7 +11,7 @@
 <table>
     <tr class="email-intro">
         <td>
-            <p>{{trans "A new withdrawal request has been submitted."}}</p>
+            <p>{{trans "A customer has submitted a return request."}}</p>
         </td>
     </tr>
     <tr class="email-information">
@@ -26,7 +26,7 @@
                     <td>{{var customer_email}}</td>
                 </tr>
                 <tr>
-                    <td><strong>{{trans "Withdrawal Date/Time:"}}</strong></td>
+                    <td><strong>{{trans "Requested on:"}}</strong></td>
                     <td>{{var requested_at}}</td>
                 </tr>
                 {{depend comment}}
@@ -40,7 +40,7 @@
     </tr>
     <tr class="email-information">
         <td>
-            <p>{{trans "Please process this withdrawal request in your admin panel."}}</p>
+            <p>{{trans "Please process this return request in your admin panel under Cloudgento > Returns > Return Requests."}}</p>
         </td>
     </tr>
 </table>
