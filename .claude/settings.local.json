@@ -35,7 +35,8 @@
       "Bash(git commit -m 'Rename Withdrawal Requests to Return Requests in admin *)",
       "Bash(git commit -m 'Rewrite email templates: friendly language, no HTML tags, Dutch translations *)",
       "Bash(git commit -m 'Remove duplicate h1 title from form template — controller already sets it *)",
-      "Bash(git commit -m 'Fix admin grid: rename layout file to match '\\\\''returns'\\\\'' route *)"
+      "Bash(git commit -m 'Fix admin grid: rename layout file to match '\\\\''returns'\\\\'' route *)",
+      "Bash(git commit -m 'Add order details to admin return requests grid *)"
     ]
   }
 }

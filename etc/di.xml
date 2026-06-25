@@ -10,13 +10,12 @@
             </argument>
         </arguments>
     </type>
-    <virtualType name="Cloudgento\Rma\Model\ResourceModel\WithdrawalRequest\Grid\Collection"
-                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <type name="Cloudgento\Rma\Model\ResourceModel\WithdrawalRequest\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">cloudgento_rma_request</argument>
             <argument name="resourceModel" xsi:type="string">
                 Cloudgento\Rma\Model\ResourceModel\WithdrawalRequest
             </argument>
         </arguments>
-    </virtualType>
+    </type>
 </config>
