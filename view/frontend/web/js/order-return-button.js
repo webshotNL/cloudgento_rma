@@ -39,14 +39,7 @@ define([
 
                 returnUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'order=' + encodeURIComponent(orderId);
 
-                $link = $('<a/>', {
-                    href: returnUrl,
-                    'class': 'action return',
-                    title: label
-                }).css({
-                    display: 'block',
-                    marginTop: '5px'
-                }).text(label);
+                $link = $('<span class="cloudgento-rma-separator" style="margin:0 8px;color:#999;">|</span><a href="' + returnUrl + '" class="action return" title="' + label + '">' + label + '</a>');
 
                 $actionsCell.append($link);
             });

@@ -17,7 +17,8 @@
       "Bash(git commit -m 'Fix order history: append return link to actions cell, not inside View Order span *)",
       "Bash(git commit -m 'Add Retourneren link to Recent Orders on My Account dashboard *)",
       "Bash(git commit -m 'Fix return link placement: append to td via DOM, display block with margin *)",
-      "Bash(git commit -m 'Fix order return button: use resilient cell detection instead of class selectors *)"
+      "Bash(git commit -m 'Fix order return button: use resilient cell detection instead of class selectors *)",
+      "Bash(git commit -m 'Add vertical bar separator with margin between action links and return link *)"
     ]
   }
 }
