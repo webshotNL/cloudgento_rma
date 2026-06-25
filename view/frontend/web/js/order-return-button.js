@@ -7,33 +7,49 @@ define([
         var baseUrl = config.baseUrl,
             label = config.label || 'Retourneren';
 
-        $('table tbody tr').each(function () {
-            var $row = $(this),
-                $orderLink = $row.find('td.col.id'),
-                orderId = $.trim($orderLink.text()),
-                $actionsCell = $row.find('td.col.actions'),
-                returnUrl, $link;
+        // Wait for DOM to be fully ready
+        $(function () {
+            $('table tbody tr').each(function () {
+                var $row = $(this),
+                    $cells = $row.find('td'),
+                    $actionsCell = null,
+                    orderId = '',
+                    returnUrl, $link;
 
-            if (!orderId || !$actionsCell.length) {
-                return;
-            }
+                // Find the order ID from the first cell that contains only a number
+                $cells.each(function () {
+                    var text = $.trim($(this).text());
 
-            // Skip if already added
-            if ($actionsCell.find('.action.return').length) {
-                return;
-            }
+                    if (/^\d{6,}$/.test(text) && !orderId) {
+                        orderId = text;
+                    }
+                    if ($(this).hasClass('actions') || $(this).find('.action.view').length) {
+                        $actionsCell = $(this);
+                    }
+                });
 
-            returnUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'order=' + encodeURIComponent(orderId);
+                if (!orderId || !$actionsCell || !$actionsCell.length) {
+                    return;
+                }
 
-            $link = $('<a/>', {
-                href: returnUrl,
-                'class': 'action return',
-                title: label,
-                css: { display: 'block', marginTop: '5px' }
-            }).text(label);
+                // Skip if already added
+                if ($actionsCell.find('.action.return').length) {
+                    return;
+                }
 
-            // Append directly to the td, outside any existing wrapper spans
-            $actionsCell[0].appendChild($link[0]);
+                returnUrl = baseUrl + (baseUrl.indexOf('?') === -1 ? '?' : '&') + 'order=' + encodeURIComponent(orderId);
+
+                $link = $('<a/>', {
+                    href: returnUrl,
+                    'class': 'action return',
+                    title: label
+                }).css({
+                    display: 'block',
+                    marginTop: '5px'
+                }).text(label);
+
+                $actionsCell.append($link);
+            });
         });
     };
 });
