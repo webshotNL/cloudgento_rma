@@ -2,12 +2,24 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
+        <add id="Cloudgento_Rma::cloudgento"
+             title="Cloudgento"
+             module="Cloudgento_Rma"
+             resource="Magento_Backend::admin"
+             sortOrder="85"/>
         <add id="Cloudgento_Rma::withdrawal"
              title="Withdrawal Requests"
              module="Cloudgento_Rma"
-             parent="Magento_Sales::sales"
+             parent="Cloudgento_Rma::cloudgento"
              action="returns/request"
              resource="Cloudgento_Rma::withdrawal_view"
-             sortOrder="100"/>
+             sortOrder="10"/>
+        <add id="Cloudgento_Rma::configuration"
+             title="Configuration"
+             module="Cloudgento_Rma"
+             parent="Cloudgento_Rma::cloudgento"
+             action="adminhtml/system_config/edit/section/cloudgento_rma"
+             resource="Cloudgento_Rma::config"
+             sortOrder="20"/>
     </menu>
 </config>
