@@ -38,7 +38,8 @@
       "Bash(git commit -m 'Fix admin grid: rename layout file to match '\\\\''returns'\\\\'' route *)",
       "Bash(git commit -m 'Add order details to admin return requests grid *)",
       "Bash(git commit -m 'Add specific error messages for postcode and email mismatches *)",
-      "Bash(git commit -m 'Persist form data on validation errors so fields stay filled *3)"
+      "Bash(git commit -m 'Persist form data on validation errors so fields stay filled *3)",
+      "Bash(git commit -m 'Highlight the incorrect field in red on validation error *)"
     ]
   }
 }

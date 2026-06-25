@@ -64,20 +64,26 @@ class Submit implements HttpPostActionInterface
         if ($order === null) {
             $result = $this->orderLocator->getLastResult();
 
+            $errorField = '';
+
             if ($result === OrderLocator::RESULT_POSTCODE_MISMATCH) {
+                $errorField = 'postcode';
                 $this->messageManager->addErrorMessage(
                     __('The postcode you entered does not match the billing or shipping address on this order. Please check and try again.')
                 );
             } elseif ($result === OrderLocator::RESULT_EMAIL_MISMATCH) {
+                $errorField = 'email';
                 $this->messageManager->addErrorMessage(
                     __('The email address does not match the order. Please use the email address you used when placing the order.')
                 );
             } else {
+                $errorField = 'increment_id';
                 $this->messageManager->addErrorMessage(
                     __('We could not find an order with this number. Please check your order number and try again.')
                 );
             }
 
+            $formData['error_field'] = $errorField;
             $this->customerSession->setData('rma_form_data', $formData);
             $redirect = $this->redirectFactory->create();
             $redirect->setPath('returns');

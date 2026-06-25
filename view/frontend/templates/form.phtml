@@ -4,7 +4,11 @@
  * @var \Magento\Framework\Escaper $escaper
  */
 $formData = $block->getFormData();
+$errorField = $formData['error_field'] ?? '';
 ?>
+<?php if ($errorField): ?>
+<style>.withdrawal-form .field-error input,.withdrawal-form .field-error textarea{border-color:#e02b27;background:#fff6f6;}</style>
+<?php endif; ?>
 <div class="withdrawal-form-container">
     <?php $introContent = $block->getIntroContent(); ?>
     <?php if ($introContent): ?>
@@ -34,7 +38,7 @@ $formData = $block->getFormData();
                 <span><?= $escaper->escapeHtml(__('Order Details')) ?></span>
             </legend>
 
-            <div class="field required">
+            <div class="field required<?= $errorField === 'increment_id' ? ' field-error' : '' ?>">
                 <label for="increment_id" class="label">
                     <span><?= $escaper->escapeHtml(__('Order Number')) ?></span>
                 </label>
@@ -51,7 +55,7 @@ $formData = $block->getFormData();
                 </div>
             </div>
 
-            <div class="field required">
+            <div class="field required<?= $errorField === 'email' ? ' field-error' : '' ?>">
                 <label for="email" class="label">
                     <span><?= $escaper->escapeHtml(__('Email Address')) ?></span>
                 </label>
@@ -69,7 +73,7 @@ $formData = $block->getFormData();
                 </div>
             </div>
 
-            <div class="field required">
+            <div class="field required<?= $errorField === 'postcode' ? ' field-error' : '' ?>">
                 <label for="postcode" class="label">
                     <span><?= $escaper->escapeHtml(__('Postcode')) ?></span>
                 </label>

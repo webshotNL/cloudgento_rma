@@ -41,6 +41,7 @@ class Form extends Template
             'email' => $saved['email'] ?? '',
             'postcode' => $saved['postcode'] ?? '',
             'comment' => $saved['comment'] ?? '',
+            'error_field' => $saved['error_field'] ?? '',
         ];
     }
 
