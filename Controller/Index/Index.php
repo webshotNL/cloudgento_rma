@@ -33,7 +33,7 @@ class Index implements HttpGetActionInterface
         }
 
         $page = $this->pageFactory->create();
-        $page->getConfig()->getTitle()->set(__('Withdraw from Contract'));
+        $page->getConfig()->getTitle()->set(__('Return a Product'));
         $page->getConfig()->setRobots('index,follow');
         return $page;
     }

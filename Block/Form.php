@@ -27,7 +27,7 @@ class Form extends Template
 
     public function getFormAction(): string
     {
-        return $this->urlResolver->getActionUrl('confirm');
+        return $this->urlResolver->getActionUrl('submit');
     }
 
     public function getPrefilledOrderNumber(): string

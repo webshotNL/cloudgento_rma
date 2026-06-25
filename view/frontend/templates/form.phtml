@@ -5,7 +5,7 @@
  */
 ?>
 <div class="withdrawal-form-container">
-    <h1><?= $escaper->escapeHtml(__('Withdrawal Form')) ?></h1>
+    <h1><?= $escaper->escapeHtml(__('Return a Product')) ?></h1>
 
     <?php $introContent = $block->getIntroContent(); ?>
     <?php if ($introContent): ?>
@@ -15,7 +15,10 @@
     <?php else: ?>
         <div class="withdrawal-intro">
             <p><?= $escaper->escapeHtml(
-                __('You have the right to withdraw from your contract within 14 days without giving any reason. Please enter your order details below to start the withdrawal process.')
+                __('Want to return your order? No problem. Under EU law you have the right to withdraw from your purchase within 14 days — no reason needed.')
+            ) ?></p>
+            <p><?= $escaper->escapeHtml(
+                __('Simply fill in your order details below and we will process your return. You will receive a confirmation email with further instructions.')
             ) ?></p>
         </div>
     <?php endif; ?>
@@ -97,10 +100,16 @@
             </div>
         </fieldset>
 
+        <div class="withdrawal-legal-notice" style="margin:15px 0;padding:12px 15px;background:#f5f5f5;border-left:3px solid #333;font-size:13px;">
+            <p style="margin:0;"><?= $escaper->escapeHtml(
+                __('By clicking the button below, I formally withdraw from the contract for the above order in accordance with EU Directive 2011/83/EU (Article 11). This withdrawal is within the 14-day cooling-off period.')
+            ) ?></p>
+        </div>
+
         <div class="actions-toolbar">
             <div class="primary">
-                <button type="submit" class="action primary" title="<?= $escaper->escapeHtmlAttr(__('Submit withdrawal')) ?>">
-                    <span><?= $escaper->escapeHtml(__('Submit withdrawal')) ?></span>
+                <button type="submit" class="action primary" title="<?= $escaper->escapeHtmlAttr(__('Return my order')) ?>">
+                    <span><?= $escaper->escapeHtml(__('Return my order')) ?></span>
                 </button>
             </div>
         </div>
