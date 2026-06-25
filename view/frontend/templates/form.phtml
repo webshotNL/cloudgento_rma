@@ -5,6 +5,8 @@
  */
 ?>
 <div class="withdrawal-form-container">
+    <h1><?= $escaper->escapeHtml(__('Withdrawal Form')) ?></h1>
+
     <?php $introContent = $block->getIntroContent(); ?>
     <?php if ($introContent): ?>
         <div class="withdrawal-intro-content">
@@ -97,8 +99,8 @@
 
         <div class="actions-toolbar">
             <div class="primary">
-                <button type="submit" class="action primary" title="<?= $escaper->escapeHtmlAttr(__('Continue')) ?>">
-                    <span><?= $escaper->escapeHtml(__('Continue')) ?></span>
+                <button type="submit" class="action primary" title="<?= $escaper->escapeHtmlAttr(__('Submit withdrawal')) ?>">
+                    <span><?= $escaper->escapeHtml(__('Submit withdrawal')) ?></span>
                 </button>
             </div>
         </div>
