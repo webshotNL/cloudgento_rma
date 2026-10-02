@@ -11,6 +11,15 @@
             <label>Withdrawal (EU Directive 2023/2673)</label>
             <tab>cloudgento</tab>
             <resource>Cloudgento_Rma::config</resource>
+            <!-- Assisted support: the block comes from Cloudgento_Support; Magento skips it when that module is absent -->
+            <group id="help" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Stuck?</label>
+                <field id="ask" translate="label" type="label" sortOrder="10" showInDefault="1">
+                    <label>Ask about this extension</label>
+                    <frontend_model>Cloudgento\Support\Block\Adminhtml\System\Config\AskButton</frontend_model>
+                    <comment>rma</comment>
+                </field>
+            </group>
             <group id="general" translate="label" sortOrder="10"
                    showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>

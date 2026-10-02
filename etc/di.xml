@@ -18,4 +18,19 @@
             </argument>
         </arguments>
     </type>
+    <!--
+        Assisted support (Cloudgento_Support): our own extension, so no licence; the shop's
+        support token identifies it. Harmless when Cloudgento_Support is not installed.
+    -->
+    <type name="Cloudgento\Support\Model\Extensions">
+        <arguments>
+            <argument name="extensions" xsi:type="array">
+                <item name="rma" xsi:type="array">
+                    <item name="name" xsi:type="string">Withdrawal (EU Directive 2023/2673)</item>
+                    <item name="module" xsi:type="string">Cloudgento_Rma</item>
+                    <item name="section" xsi:type="string">cloudgento_rma</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
 </config>
